@@ -12,6 +12,25 @@ input[type=text], [type=number] {
   box-sizing: border-box;
 }
 
+.info,
+.success,
+.warning,
+.error,
+.validation {
+	border: 1px solid;
+	margin: 10px auto;
+	padding: 15px 10px 15px 50px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	max-width: 460px;
+}
+.error {
+  background-color: red;
+}
+.success {
+  background-color: green;
+}
+
 .btn {
     border-radius: 50px;
     color: black;
@@ -22,6 +41,7 @@ input[type=text], [type=number] {
     font-family: monospace;
     background-color: #778899;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 form {

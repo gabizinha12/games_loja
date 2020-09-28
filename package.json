@@ -5,13 +5,16 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
-    "handlebars": "^4.7.6",
+    "express-session": "^1.17.1",
     "mongoose": "^5.10.7",
     "path": "^0.12.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "handlebars": "^4.7.6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

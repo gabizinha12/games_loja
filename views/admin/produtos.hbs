@@ -1,3 +1,15 @@
 {{>header}}
 <h2>Lista de produtos</h2>
 <a href="/admin/produtos/add"><button class="btn">Novo produto</button></a>
+<button class="btn">Editar produto</button>
+
+{{#each produtos}}
+<div class="card">
+    <h4>{{nome}}</h4>
+    <h4>{{descricao}}</h4>
+    <h4>{{preco}}</h4>
+
+</div>
+{{else}}
+
+{{/each}}
