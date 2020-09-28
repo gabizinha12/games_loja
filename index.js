@@ -5,8 +5,8 @@ const hbs = require("express-handlebars")
 const bodyParser = require("body-parser")
 const path = require("path")
 const admin = require("./routes/admin")
+const mongoose = require("mongoose")
 const app = express();
-// const mongoose = require("mongoose")
 
 // configurações 
 // body parser
@@ -17,8 +17,19 @@ app.set('view engine', 'hbs')
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'main', layoutsDir: __dirname+'/views/layout'}))
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
+
+// mongoose
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/games_loja', {
+    useNewUrlParser: true , 
+    useUnifiedTopology: true
+}).then(()=>{
+    console.log("MongoDB Conectado...");
+}).catch((err)=>{
+    console.log("Houve um erro: " + err);
+});
 // rotas
-app.use("/admin", admin);
+app.use('/admin', admin);
 
 
 // outros
