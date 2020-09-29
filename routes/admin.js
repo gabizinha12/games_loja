@@ -74,6 +74,10 @@ router.get('/categorias/edit/:id', (req,res) => {
     res.send("teste")
 })
 
+router.get('/produtos/edit/:id', (req,res) => {
+    res.send("teste")
+})
+
 
 router.get('/categorias', (req,res) => {
     Categoria.find().lean().then((categorias) => {

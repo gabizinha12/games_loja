@@ -1,7 +1,7 @@
 {{>header}}
 <h2>Lista de produtos</h2>
 <a href="/admin/produtos/add"><button class="btn">Novo produto</button></a>
-<a href="#"><button class="btn">Editar produto</button></a>
+<a href="/admin/produtos/edit/{{_id}}"><button class="btn">Editar produto</button></a>
 
 {{#each produtos}}
 <div class="card">
