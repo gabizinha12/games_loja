@@ -71,11 +71,11 @@ router.post('/produtos/novo', (req,res) => {
 })
 
 router.get('/categorias/edit/:id', (req,res) => {
-    res.send("teste")
+    res.render("admin/editcategorias")
 })
 
 router.get('/produtos/edit/:id', (req,res) => {
-    res.send("teste")
+    res.render("admin/editprodutos")
 })
 
 
