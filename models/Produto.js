@@ -1,4 +1,6 @@
 const mongoose = require("mongoose")
+require('@logicamente.info/mongoose-currency-brl').loadType(mongoose);
+const BrazilianCurrency = mongoose.Types.BrazilianCurrency;
 const Schema = mongoose.Schema;
 
 const Produto = new Schema({
@@ -15,7 +17,7 @@ const Produto = new Schema({
         default: Date.now()
     },
     preco: {
-        type: Number,
+        type: BrazilianCurrency,
         required: true
     }
 

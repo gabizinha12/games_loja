@@ -1,7 +1,7 @@
 {{>header}}
 <h2>Lista de categorias</h2>
 <a href="/admin/categorias/add"><button class="btn">Nova categoria</button></a>
-
+<a href="/admin/categorias/edit/{{_id}}"><button class="btn">Editar categoria</button></a>
 {{#each categorias}}
 <div class="card">
     <h2>{{nome}}</h2>

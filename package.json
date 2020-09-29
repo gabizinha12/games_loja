@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@logicamente.info/mongoose-currency-brl": "^1.0.0",
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
     "express": "^4.17.1",
