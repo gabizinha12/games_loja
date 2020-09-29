@@ -1,13 +1,13 @@
-{{>header}}
-<h2>Lista de categorias</h2>
-<a href="/admin/categorias/add"><button class="btn">Nova categoria</button></a>
-<a href="/admin/categorias/edit/{{_id}}"><button class="btn">Editar categoria</button></a>
-{{#each categorias}}
-<div class="card">
-    <h2>{{nome}}</h2>
-    <small>{{slug}}</small>
-    <small>{{date}}</small>
 
+{{>header}}
+<h2> {{ _id}}Lista de produtos</h2>
+<a href="/admin/categorias/add"><button class="btn">Nova categoria</button></a>
+
+{{#each produtos}}
+<div class="card">
+    <h4>{{nome}}</h4>
+    <h4>{{slug}}</h4>
+<a href="/admin/categorias/edit/{{_id}}"><button class="btn">Editar categoria</button></a>
 </div>
 {{else}}
 

@@ -1,14 +1,14 @@
+
 {{>header}}
 <h2> {{ _id}}Lista de produtos</h2>
 <a href="/admin/produtos/add"><button class="btn">Novo produto</button></a>
-<a href="/admin/produtos/edit/{{_id}}"><button class="btn">Editar produto</button></a>
 
 {{#each produtos}}
 <div class="card">
     <h4>{{nome}}</h4>
     <h4>{{descricao}}</h4>
     <h4 id="moeda"> R$ {{preco}}</h4>
-
+<a href="/admin/produtos/edit/{{_id}}"><button class="btn">Editar produto</button></a>
 </div>
 {{else}}
 
