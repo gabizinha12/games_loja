@@ -1,12 +1,14 @@
 
 <div class="card">
-   <form action="/admin/produtos/novo" method="post">
+   <h1>Editar produto</h1>
+   <form action="/admin/produtos/edit" method="post">
+      <input type="hidden" name="id" value="{{produto._id}}">
       <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" placeholder="Nome da categoria">
+      <input type="text" id="nome" name="nome" placeholder="Nome do produto" value="{{produto.nome}}">
       <label for="slug">Slug:</label>
-      <input type="text" id="slug" name="slug" placeholder="Slug da categoria">
+      <input type="text" id="slug" name="slug" placeholder="Slug do produto" value="{{produto.slug}}">
       <label for="preco">Preço:</label>
-      <input type="number" class="form-control" name="preco" step="0.01" maxlength="number">
-      <button class="btn" type="submit">Editar produto</button>
+      <input type="number" class="form-control" name="preco" step="0.01" maxlength="number" value="{{produto.preco}}">
+      <button class="btn" type="submit">Salvar produto</button>
    </form>
 </div>

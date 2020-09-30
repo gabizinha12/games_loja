@@ -9,7 +9,12 @@
     <h4>{{descricao}}</h4>
     <h4 id="moeda"> R$ {{preco}}</h4>
 <a href="/admin/produtos/edit/{{_id}}"><button class="btn">Editar produto</button></a>
+<form action="/admin/produtos/deletar" method="POST">
+        <input type="hidden" name="id" value="{{_id}}">
+        <button class="btn" type="submit">Deletar produto</button>
+</form>
 </div>
 {{else}}
+<h4>Nenhum produto registrado</h4>
 
 {{/each}}

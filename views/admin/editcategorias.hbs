@@ -1,8 +1,11 @@
 <div class="card">
-   <form action="/admin/produtos/novo" method="post">
+   <h1>Editar categoria</h1>
+   <form action="/admin/categorias/edit" method="post">
+      <input type="hidden" name="id" value="{{categoria._id}}">
       <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" placeholder="Nome da categoria">
+      <input type="text" id="nome" name="nome" placeholder="Nome da categoria" value="{{categoria.nome}}">
       <label for="slug">Slug:</label>
-      <button class="btn" type="submit">Editar categoria</button>
+      <input type="text" id="slug" name="slug" placeholder="Slug da categoria" value="{{categoria.slug}}">
+      <button class="btn" type="submit">Salvar categoria</button>
    </form>
 </div>

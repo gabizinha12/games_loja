@@ -1,14 +1,19 @@
 
 {{>header}}
-<h2> {{ _id}}Lista de produtos</h2>
+<h2> {{ _id}}Lista de Categorias</h2>
 <a href="/admin/categorias/add"><button class="btn">Nova categoria</button></a>
 
-{{#each produtos}}
+{{#each categorias}}
 <div class="card">
     <h4>{{nome}}</h4>
     <h4>{{slug}}</h4>
 <a href="/admin/categorias/edit/{{_id}}"><button class="btn">Editar categoria</button></a>
+<form action="/admin/categorias/deletar" method="POST">
+    <input type="hidden" name="id" value="{{_id}}">
+    <button class="btn" type="submit">Deletar categoria</button>
+</form>
 </div>
 {{else}}
+<h4>Nenhuma categoria registrada</h4>
 
 {{/each}}
