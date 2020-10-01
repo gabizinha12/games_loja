@@ -1,13 +1,22 @@
 .card {
-    width: 800px;
-    display: flex;
-    flex-direction: column;
-    border: 1px black solid;
+  width: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  border: 1px white solid;
+  background-color:  #efefef;
+  margin-top: 40px;
+  padding-top: 20px;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
 }
 
-input[type=text], [type=number] {
+input[type="text"],
+[type="number"] {
   width: 100%;
   padding: 12px 20px;
+  margin-top: 20px;
   margin: 8px 0;
   box-sizing: border-box;
 }
@@ -17,12 +26,12 @@ input[type=text], [type=number] {
 .warning,
 .error,
 .validation {
-	border: 1px solid;
-	margin: 10px auto;
-	padding: 15px 10px 15px 50px;
-	background-repeat: no-repeat;
-	background-position: 10px center;
-	max-width: 460px;
+  border: 1px solid;
+  margin: 10px auto;
+  padding: 18px 10px 15px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  max-width: 460px;
 }
 .error {
   background-color: red;
@@ -32,131 +41,142 @@ input[type=text], [type=number] {
 }
 
 .btn {
-    border-radius: 50px;
-    color: black;
-    display: inline-block;
-    padding:6px 10px;
-    text-decoration:none;
-    border: 1px black solid;
-    font-family: monospace;
-    background-color: #778899;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  border-radius: 20px;
+  color: black;
+  display: block;
+  padding: 6px 20px;
+  text-decoration: none;
+  border: 1px black solid;
+  background-color:gray;
+  margin-top: 20px;
+  font-family: "Raleway", sans-serif;
+  height: 20px;
+  margin: 0 auto;
+  width: 100px;
+  margin-top: 60px;
 }
 
 form {
-  position : relative;
-  width  : 740px;
-  height : 498px;
-  margin : 0 auto;
+  position: relative;
+  width: 300px;
+  height: 498px;
   padding: 1em;
   box-sizing: border-box;
 }
 
-
-
 .header {
-    height: 30%;
-    background: white;
-    color: black;
-    text-align: center;
+  height: 30%;
+  background: white;
+  color: black;
+  text-align: center;
 }
 
 .container {
-    padding: 2px 16px;
+  padding: 19px 16px;
 }
 body {
-    font-family: 'Press Start 2P', cursive;
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  font-weight: lighter;
+  margin-left: 10px;
 }
 
 * {
-    box-sizing: border-box;
-  }
-  
-  .nav {
-    height: 50px;
-    width: 100%;
-    background-color:#778899;
-    position: relative;
-  }
-  
-  .nav > .nav-header {
-    display: inline;
-  }
-  
-  .nav > .nav-header > .nav-title {
-    display: inline-block;
-    font-size: 22px;
-    color: black;
-    padding: 10px 10px 10px 10px;
-  }
-  
+  box-sizing: content-box;
+}
+
+.nav-title, .nav-links {
+  font-family:  'Share Tech Mono', monospace;
+}
+
+.nav {
+  margin-bottom: 40px;
+  height: 50px;
+  width: 100%;
+  background-color:#0000CD;
+  position: relative;
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: black;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  font-size: 18px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width: 600px) {
   .nav > .nav-btn {
-    display: none;
-  }
-  
-  .nav > .nav-links {
-    display: inline;
-    font-size: 18px;
-  }
-  
-  .nav > .nav-links > a {
     display: inline-block;
-    padding: 13px 10px 13px 10px;
-    text-decoration: none;
-    color: #efefef;
+    position: absolute;
+    right: 0px;
+    top: 0px;
   }
-  
-  .nav > .nav-links > a:hover {
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,
+  .nav #nav-check:checked ~ .nav-btn > label {
     background-color: rgba(0, 0, 0, 0.3);
   }
-  
-  .nav > #nav-check {
-    display: none;
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
   }
-  
-  @media (max-width:600px) {
-    .nav > .nav-btn {
-      display: inline-block;
-      position: absolute;
-      right: 0px;
-      top: 0px;
-    }
-    .nav > .nav-btn > label {
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      padding: 13px;
-    }
-    .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-    .nav > .nav-btn > label > span {
-      display: block;
-      width: 25px;
-      height: 10px;
-      border-top: 2px solid #eee;
-    }
-    .nav > .nav-links {
-      position: absolute;
-      display: block;
-      width: 100%;
-      background-color: #333;
-      height: 0px;
-      transition: all 0.3s ease-in;
-      overflow-y: hidden;
-      top: 50px;
-      left: 0px;
-    }
-    .nav > .nav-links > a {
-      display: block;
-      width: 100%;
-    }
-    .nav > #nav-check:not(:checked) ~ .nav-links {
-      height: 0px;
-    }
-    .nav > #nav-check:checked ~ .nav-links {
-      height: calc(100vh - 50px);
-      overflow-y: auto;
-    }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
   }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}

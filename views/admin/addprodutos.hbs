@@ -1,11 +1,12 @@
 <div class="card">
+ <h1>Adicionar produto</h1>
    <form action="/admin/produtos/novo" method="post">
       <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" placeholder="Nome da categoria">
+      <input type="text" id="nome" name="nome" placeholder="Nome do produto">
       <label for="slug">Slug:</label>
-      <input type="text" id="slug" name="slug" placeholder="Slug da categoria">
+      <input type="text" id="slug" name="slug" placeholder="Slug do produto">
       <label for="preco">Preço:</label>
-      <input type="number" class="form-control" name="preco" step="0.01" maxlength="number">
+      <input type="number" class="form-control" name="preco" step="0.01" maxlength="number" placeholder="Preço do produto">
       <button class="btn" type="submit">Criar produto</button>
    </form>
 </div>
