@@ -9,6 +9,9 @@ const mongoose = require("mongoose")
 const flash = require("connect-flash")
 const session = require("express-session")
 const app = express();
+const usuarios  = require("./routes/usuario")
+require('./models/Produto')
+const Produto = mongoose.model('produtos')
 
 // configurações 
 //sessão
@@ -46,8 +49,21 @@ mongoose.connect('mongodb://localhost/games_loja', {
 }).catch((err)=>{
     console.log("Houve um erro: " + err);
 });
+
 // rotas
+app.get('/', (req,res) => {
+    Produto.find().lean().populate('produto').then((produtos) => {
+    res.render('index', {produtos: produtos})
+    }).catch((err) => {
+        req.flash("error_msg", "Ocorreu um erro")
+        res.redirect('/404')
+    })
+})
+app.get('/404', (req,res) => {
+    res.send("Erro 404!")
+})
 app.use('/admin', admin);
+app.use('/usuarios', usuarios)
 
 
 // outros

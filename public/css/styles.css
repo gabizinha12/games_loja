@@ -12,6 +12,9 @@
   box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
 }
 
+
+
+
 input[type="text"],
 [type="number"] {
   width: 100%;
@@ -31,6 +34,7 @@ input[type="text"],
   padding: 18px 10px 15px 50px;
   background-repeat: no-repeat;
   background-position: 10px center;
+  font-family: 'Advent Pro', sans-serif;
   max-width: 460px;
 }
 .error {
@@ -44,16 +48,18 @@ input[type="text"],
   border-radius: 20px;
   color: black;
   display: block;
-  padding: 6px 20px;
+  padding: 15px 80px;
   text-decoration: none;
-  border: 1px black solid;
-  background-color:gray;
+  background: #1E90FF;
+  border: none;
   margin-top: 20px;
-  font-family: "Raleway", sans-serif;
-  height: 20px;
+  height: 40px;
   margin: 0 auto;
   width: 100px;
   margin-top: 60px;
+  font-size: 19px;
+  font-family: 'Advent Pro', sans-serif;
+
 }
 
 form {
@@ -75,27 +81,29 @@ form {
   padding: 19px 16px;
 }
 body {
-  font-family: "Raleway", sans-serif;
+  
+  background-color: #efefef;
 }
 
 h1 {
   font-weight: lighter;
   margin-left: 10px;
+  font-family: 'Advent Pro', sans-serif;
 }
 
 * {
   box-sizing: content-box;
 }
 
-.nav-title, .nav-links {
-  font-family:  'Share Tech Mono', monospace;
+.nav-title, .nav-links{
+  font-family: 'Advent Pro', sans-serif;
 }
 
 .nav {
   margin-bottom: 40px;
   height: 50px;
   width: 100%;
-  background-color:#0000CD;
+  background-color:#0070d1;
   position: relative;
 }
 
@@ -107,7 +115,7 @@ h1 {
   display: inline-block;
   font-size: 22px;
   color: black;
-  padding: 10px 10px 10px 10px;
+  padding: 10px 20px 10px 10px;
 }
 
 .nav > .nav-btn {
@@ -116,7 +124,7 @@ h1 {
 
 .nav > .nav-links {
   display: inline;
-  font-size: 18px;
+  font-size: 19px;
 }
 
 .nav > .nav-links > a {

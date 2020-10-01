@@ -1,0 +1,21 @@
+{{>header}}
+<div class="container">
+    <h1>Bem vindo a GameStore</h1>
+    <button class="btn">Crie uma conta</button>
+</div>
+
+<h1>Produtos recentes:</h1>
+
+{{#each produtos}}
+<div class="grid">
+<div class="card">
+ <h1>{{nome}}</h1>
+ <h1>{{slug}}</h1>
+ <h1>{{preco}}</h1>
+</div>
+</div>
+
+{{else}}
+<h1>Nenhum produto </h1>
+
+{{/each}}

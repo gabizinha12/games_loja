@@ -64,7 +64,7 @@ router.post('/produtos/novo', (req,res) => {
         preco: req.body.preco,
     }
    new Produto(novoProduto).save().then(() => {
-        req.flash("success_msg", "Produto salva com sucesso" )
+        req.flash("success_msg", "Produto salvo com sucesso" )
        res.redirect("/admin/produtos")
    }).catch((err) => {
     req.flash("error_msg", "Houve um erro ao salvar")
