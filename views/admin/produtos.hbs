@@ -1,13 +1,13 @@
 
 {{>header}}
-<h2>Lista de produtos</h2>
-<a href="/admin/produtos/add"><button class="btn">Novo produto</button></a>
+<h1>Lista de produtos</h1>
+    <a href="/admin/produtos/add"><button class="btn">Novo produto</button></a>
 
 {{#each produtos}}
 <div class="card">
-    <h4>{{nome}}</h4>
-    <h4>{{descricao}}</h4>
-    <h4> R$ {{preco}}</h4>
+    <h1>{{nome}}</h1>
+    <h1>{{descricao}}</h1>
+    <h1> R$ {{preco}}</h1>
 <div class="container">
 <a href="/admin/produtos/edit/{{_id}}"><button class="btn">Editar produto</button></a>
  <form action="/admin/produtos/deletar" method="POST">
@@ -18,6 +18,6 @@
 
 </div>
 {{else}}
-<h4>Nenhum produto registrado</h4>
+<h1>Nenhum produto registrado</h1>
 
 {{/each}}

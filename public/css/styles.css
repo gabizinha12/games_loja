@@ -1,11 +1,11 @@
 .card {
   width: 300px;
-  height: 500px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   border: 1px white solid;
   background-color:  #efefef;
-  margin-top: 40px;
+  margin-top: 50px;
   padding-top: 20px;
   margin: auto;
   border-radius: 20px;
@@ -16,12 +16,13 @@
 
 
 input[type="text"],
-[type="number"] {
+[type="number"], [type="password"],[type="email"] {
   width: 100%;
-  padding: 12px 20px;
-  margin-top: 20px;
-  margin: 8px 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   box-sizing: border-box;
+  resize: vertical;
 }
 
 .info,
@@ -43,7 +44,15 @@ input[type="text"],
 .success {
   background-color: green;
 }
-
+ .btn, a {
+   text-decoration: none;
+ }
+ label {
+  font-family: 'Advent Pro', sans-serif;
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+ }
+ 
 .btn {
   border-radius: 20px;
   color: black;
@@ -78,6 +87,9 @@ form {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 19px 16px;
 }
 body {
