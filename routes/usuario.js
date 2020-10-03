@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 require('../models/Usuario')
 const Usuario = mongoose.model("usuarios")
 const bcrypt = require('bcrypt')
+const passport = require('passport')
 
 
 router.get('/registro', (req,res) => {
@@ -34,8 +35,30 @@ router.post('/registro', (req,res) => {
        Usuario.findOne({email: req.body.email}).then((usuario) => {
            if(usuario){
             req.flash("error_msg", "Já existe uma conta com esse email")
-            res.redirect('/registro')
+            res.redirect('/usuarios/registro')
            }else {
+            const novoUsuario = new Usuario({
+                nome: req.body.nome,
+                email: req.body.email,
+                senha: req.body.senha
+            })
+
+            bcrypt.genSalt(10, (erro, salt)=> {
+                bcrypt.hash(novoUsuario.senha, salt, (erro,hash) => {
+                    if(erro) {
+                        req.flash("error_msg", "Houve um erro durante o salvamento")
+                        res.redirect('/')
+                    }
+                    novoUsuario.senha = hash
+                    novoUsuario.save().then(() => {
+                    req.flash("success_msg", "Usuário criado")
+                    res.redirect('/')
+                    }).catch((err) => {
+                     req.flash("error_msg", "Houve um erro")
+                     res.redirect('/usuarios/registro')
+                    })
+                })
+            })
 
            }
        }).catch((err) => {
@@ -43,6 +66,19 @@ router.post('/registro', (req,res) => {
            res.redirect('/')
        })
     }
+})
+
+
+router.get('/login', (req,res) => {
+    res.render('usuarios/login')
+})
+
+router.post('/login', (req,res,next) => {
+   passport.authenticate("local", {
+       successRedirect: '/',
+       failureRedirect: '/usuarios/login',
+       failureFlash: true
+   })(req,res,next)
 })
 
 module.exports = router;

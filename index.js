@@ -10,7 +10,9 @@ const flash = require("connect-flash")
 const session = require("express-session")
 const app = express();
 const usuarios  = require("./routes/usuario")
+const passport = require("passport")
 require('./models/Produto')
+require('./config/auth')(passport)
 const Produto = mongoose.model('produtos')
 
 // configurações 
@@ -20,6 +22,8 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(flash())
 // Middleware
 app.use((req,res,next) => {
