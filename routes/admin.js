@@ -5,12 +5,13 @@ require("../models/Categoria")
 require("../models/Produto")
 const Categoria = mongoose.model("categorias")
 const Produto = mongoose.model("produtos")
+const {eAdmin} = require('../helpers/eAdmin')
 
 router.get('/', (req,res) => {
     res.render('admin/index', {layout: false})
 })
 
-router.get('/produtos', (req,res) => {
+router.get('/produtos', eAdmin, (req,res) => {
     Produto.find().lean().then((produtos) => {
         res.render('admin/produtos', {produtos: produtos})
     }).catch(() => {
@@ -19,11 +20,11 @@ router.get('/produtos', (req,res) => {
     })
 })
 
-router.get('/categorias/add', (req,res) => {
+router.get('/categorias/add', eAdmin, (req,res) => {
     res.render('admin/addcategorias')
 })
 
-router.post('/categorias/nova', (req,res) => {
+router.post('/categorias/nova', eAdmin, (req,res) => {
     var erros = [];
     if(!req.body.nome || typeof req.body.nome == undefined || req.body.nome  == null) {
         erros.push({texto: "Nome inválido"})
@@ -53,11 +54,11 @@ router.post('/categorias/nova', (req,res) => {
     
 })
 
-router.get('/produtos/add', (req,res) => {
+router.get('/produtos/add', eAdmin, (req,res) => {
     res.render('admin/addprodutos')
 })
 
-router.post('/produtos/novo', (req,res) => {
+router.post('/produtos/novo', eAdmin, (req,res) => {
     const novoProduto = {
         nome: req.body.nome,
         slug: req.body.slug,
@@ -72,7 +73,7 @@ router.post('/produtos/novo', (req,res) => {
    })
 })
 
-router.get('/categorias/edit/:id', (req,res) => {
+router.get('/categorias/edit/:id', eAdmin, (req,res) => {
     Categoria.findOne({_id: req.params.id}).lean().then((categoria) => {
         res.render("admin/editcategorias", {categoria: categoria})
     }).catch((err) => {
@@ -81,7 +82,7 @@ router.get('/categorias/edit/:id', (req,res) => {
     })
 })
 
-router.get('/produtos/edit/:id', (req,res) => {
+router.get('/produtos/edit/:id', eAdmin, (req,res) => {
     Produto.findOne({_id: req.params.id}).lean().then((produto) => {
         res.render("admin/editprodutos", {produto: produto})
     }).catch((err) => {
@@ -91,7 +92,7 @@ router.get('/produtos/edit/:id', (req,res) => {
 })
 
 
-router.post('/categorias/edit', (req,res) => {
+router.post('/categorias/edit', eAdmin, (req,res) => {
     Categoria.findOne({_id: req.body.id}).then((categoria) => {
         categoria.nome = req.body.nome
         categoria.slug = req.body.slug
@@ -112,7 +113,7 @@ router.post('/categorias/edit', (req,res) => {
     })
 })
 
-router.post('/produtos/edit', (req,res) => {
+router.post('/produtos/edit', eAdmin, (req,res) => {
     Produto.findOne({_id: req.body.id}).then((produto) => {
         produto.nome = req.body.nome
         produto.slug = req.body.slug
@@ -133,7 +134,7 @@ router.post('/produtos/edit', (req,res) => {
 
 })
 
-router.post('/categorias/deletar', (req,res) => {
+router.post('/categorias/deletar', eAdmin, (req,res) => {
     Categoria.deleteOne({_id: req.body.id}).then(() => {
         req.flash("success_msg", "Categoria deletada com sucesso")
         res.redirect('/admin/categorias')
@@ -143,7 +144,7 @@ router.post('/categorias/deletar', (req,res) => {
 
 })
 
-router.post('/produtos/deletar', (req,res) => {
+router.post('/produtos/deletar', eAdmin, (req,res) => {
     Produto.deleteOne({_id: req.body.id}).then(() => {
         req.flash("success_msg", "Produto deletado com sucesso")
         res.redirect('/admin/produtos')
@@ -152,7 +153,7 @@ router.post('/produtos/deletar', (req,res) => {
     })
 })
 
-router.get('/categorias', (req,res) => {
+router.get('/categorias', eAdmin, (req,res) => {
     Categoria.find().lean().then((categorias) => {
         res.render('admin/categorias', {categorias: categorias})
     }).catch(() => {

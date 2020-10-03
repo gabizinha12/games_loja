@@ -4,12 +4,12 @@
     GameStore
     </div>
   </div>
-
+  {{#if user}}
+  {{else}}
   <div class="nav-links">
     <a href="/">Home</a>
-    <a href="/admin/categorias">Categorias</a>
-    <a href="/admin/produtos">Produtos</a>
     <a href="/usuarios/login">Login</a>
     <a href="/usuarios/registro">Registro</a>
+    {{/if}}
   </div>
 </div>
