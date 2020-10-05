@@ -1,21 +1,36 @@
-
 {{>header}}
 <h1>Lista de produtos</h1>
-    <a href="/admin/produtos/add"><button class="btn">Novo produto</button></a>
+<a href="/admin/produtos/add"><button class="btn">Novo produto</button></a>
 
 {{#each produtos}}
-<div class="card">
-    <h1>{{nome}}</h1>
-    <h1>{{descricao}}</h1>
-    <h1> R$ {{preco}}</h1>
-<div class="container">
-<a href="/admin/produtos/edit/{{_id}}"><button class="btn">Editar produto</button></a>
- <form action="/admin/produtos/deletar" method="POST">
-        <input type="hidden" name="id" value="{{_id}}">
-        <button class="btn" type="submit">Deletar produto</button>
-</form>
-</div>
+<div class="wrapper">
 
+    <div class="card">
+        <h1>{{nome}}</h1>
+        <h1>{{descricao}}</h1>
+        <h1> R$ {{preco}}</h1>
+        <div class="container">
+            <a href="/admin/produtos/edit/{{_id}}"><button class="btn">Editar produto</button></a>
+            <form action="/admin/produtos/deletar" method="POST">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button class="btn" type="submit">Deletar produto</button>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <h1>{{nome}}</h1>
+        <h1>{{descricao}}</h1>
+        <h1> R$ {{preco}}</h1>
+        <div class="container">
+            <a href="/admin/produtos/edit/{{_id}}"><button class="btn">Editar produto</button></a>
+            <form action="/admin/produtos/deletar" method="POST">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button class="btn" type="submit">Deletar produto</button>
+            </form>
+        </div>
+
+
+    </div>
 </div>
 {{else}}
 <h1>Nenhum produto registrado</h1>

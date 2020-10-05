@@ -11,7 +11,7 @@ router.get('/', (req,res) => {
     res.render('admin/index', {layout: false})
 })
 
-router.get('/produtos', eAdmin, (req,res) => {
+router.get('/produtos',  (req,res) => {
     Produto.find().lean().then((produtos) => {
         res.render('admin/produtos', {produtos: produtos})
     }).catch(() => {
@@ -54,11 +54,11 @@ router.post('/categorias/nova', eAdmin, (req,res) => {
     
 })
 
-router.get('/produtos/add', eAdmin, (req,res) => {
+router.get('/produtos/add',  (req,res) => {
     res.render('admin/addprodutos')
 })
 
-router.post('/produtos/novo', eAdmin, (req,res) => {
+router.post('/produtos/novo', (req,res) => {
     const novoProduto = {
         nome: req.body.nome,
         slug: req.body.slug,

@@ -7,7 +7,12 @@
 <h1>Produtos recentes:</h1>
 
 {{#each produtos}}
-<div class="grid">
+<div class="wrapper">
+<div class="card">
+ <h1>{{nome}}</h1>
+ <h1>{{slug}}</h1>
+ <h1> R$ {{preco}}</h1>
+</div>
 <div class="card">
  <h1>{{nome}}</h1>
  <h1>{{slug}}</h1>

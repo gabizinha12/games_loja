@@ -3,7 +3,7 @@
   height: 600px;
   display: flex;
   flex-direction: column;
-  border: 1px white solid;
+  border: none;
   background-color:  #efefef;
   margin-top: 50px;
   padding-top: 20px;
@@ -11,8 +11,17 @@
   border-radius: 20px;
   box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
 }
-
-
+* {
+  padding:0; 
+  margin:0;
+  }
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; 
+  margin-bottom: 20px;/* fara quebrar e nao explodir a tela se tiver em telas menores. Adiciona isso se tiver pelo menos 2 cards*/
+  }
 
 
 input[type="text"],
@@ -30,13 +39,15 @@ input[type="text"],
 .warning,
 .error,
 .validation {
-  border: 1px solid;
+  border: none;
   margin: 10px auto;
   padding: 18px 10px 15px 50px;
   background-repeat: no-repeat;
   background-position: 10px center;
   font-family: 'Advent Pro', sans-serif;
   max-width: 460px;
+  border-radius: 40px;
+  color: white;
 }
 .error {
   background-color: red;
