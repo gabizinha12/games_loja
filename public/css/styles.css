@@ -1,6 +1,6 @@
 .card {
   width: 300px;
-  height: 600px;
+  height: 460px;
   display: flex;
   flex-direction: column;
   border: none;
@@ -45,7 +45,7 @@ input[type="text"],
   padding: 18px 10px 15px 50px;
   background-repeat: no-repeat;
   background-position: 10px center;
-  font-family: 'Advent Pro', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   max-width: 460px;
   border-radius: 40px;
   color: white;
@@ -59,8 +59,13 @@ input[type="text"],
  .btn, a {
    text-decoration: none;
  }
+
+ .btn:hover {
+   border: none;
+ } 
+
  label {
-  font-family: 'Advent Pro', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   padding: 12px 12px 12px 0;
   display: inline-block;
  }
@@ -77,16 +82,17 @@ input[type="text"],
   height: 40px;
   margin: 0 auto;
   width: 100px;
-  margin-top: 60px;
+  margin-top: 20px;
   font-size: 19px;
-  font-family: 'Advent Pro', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+
 
 }
 
 form {
   position: relative;
   width: 300px;
-  height: 498px;
+  height: 298px;
   padding: 1em;
   box-sizing: border-box;
 }
@@ -105,14 +111,14 @@ form {
   padding: 19px 16px;
 }
 body {
-  
-  background-color: #efefef;
+  background-color: #DCDCDC;
 }
 
 h1 {
   font-weight: lighter;
   margin-left: 10px;
-  font-family: 'Advent Pro', sans-serif;
+  margin-top: 20px;
+  font-family: 'Quicksand', sans-serif;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -122,7 +128,7 @@ h1 {
 }
 
 .nav-title, .nav-links{
-  font-family: 'Advent Pro', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .nav {
