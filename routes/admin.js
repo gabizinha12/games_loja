@@ -62,6 +62,7 @@ router.post('/produtos/novo', (req,res) => {
     const novoProduto = {
         nome: req.body.nome,
         slug: req.body.slug,
+        descricao: req.body.descricao,
         preco: req.body.preco,
     }
    new Produto(novoProduto).save().then(() => {
@@ -118,6 +119,7 @@ router.post('/produtos/edit', eAdmin, (req,res) => {
         produto.nome = req.body.nome
         produto.slug = req.body.slug
         produto.preco = req.body.preco
+        produto.descricao = req.body.descricao
 
         produto.save().then(() => {
             req.flash("success_msg", "Produto editado com sucesso")
@@ -144,7 +146,7 @@ router.post('/categorias/deletar', eAdmin, (req,res) => {
 
 })
 
-router.post('/produtos/deletar', eAdmin, (req,res) => {
+router.post('/produtos/deletar',  (req,res) => {
     Produto.deleteOne({_id: req.body.id}).then(() => {
         req.flash("success_msg", "Produto deletado com sucesso")
         res.redirect('/admin/produtos')

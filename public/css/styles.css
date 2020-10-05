@@ -1,11 +1,12 @@
 .card {
   width: 300px;
-  height: 460px;
+  height: 570px;
   display: flex;
   flex-direction: column;
   border: none;
   background-color:  #efefef;
   margin-top: 50px;
+  margin-bottom: 20px;
   padding-top: 20px;
   align-self: center;
   margin: auto;
@@ -69,7 +70,7 @@ input[type="text"],
   padding: 12px 12px 12px 0;
   display: inline-block;
  }
- 
+
 .btn {
   border-radius: 20px;
   color: black;
@@ -85,8 +86,6 @@ input[type="text"],
   margin-top: 20px;
   font-size: 19px;
   font-family: 'Quicksand', sans-serif;
-
-
 }
 
 form {

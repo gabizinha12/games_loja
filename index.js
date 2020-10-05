@@ -11,6 +11,7 @@ const session = require("express-session")
 const app = express();
 const usuarios  = require("./routes/usuario")
 const passport = require("passport")
+const multer = require('multer')
 require('./models/Produto')
 require('./config/auth')(passport)
 const Produto = mongoose.model('produtos')

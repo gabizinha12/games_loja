@@ -14,6 +14,10 @@ const Produto = new Schema({
         type: Date,
         default: Date.now()
     },
+    descricao: {
+      type: String,
+      required: true
+    },
     preco: {
         type: Number,
         required: true
