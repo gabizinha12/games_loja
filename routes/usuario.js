@@ -127,13 +127,13 @@ router.get("/addcarrinho", (req, res) => {
     });
 });
 
-router.get("/carrinho", (req, res) => {
-    const carrinhos = carrinho[0].id;
-    let carrinho =  Carrinho.find({_id: carrinhos}).lean()
-    .then((carrinho) => {
-      res.render("usuarios/carrinho", { carrinho: carrinho });
-    });
-});
+
+router.get("/carrinho", async (req, res) => {
+  const carrinhos = carrinho[0].id;
+  let carrinho = await Carrinho.find()
+    .lean()
+      res.send(carrinho.toString())
+})
 
 router.get("/logout", (req, res) => {
   req.logout();
