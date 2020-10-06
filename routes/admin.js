@@ -5,6 +5,7 @@ require("../models/Categoria")
 require("../models/Produto")
 const Categoria = mongoose.model("categorias")
 const Produto = mongoose.model("produtos")
+const multer = require('../models/multer')
 const {eAdmin} = require('../helpers/eAdmin')
 
 router.get('/', (req,res) => {
@@ -58,12 +59,13 @@ router.get('/produtos/add',  (req,res) => {
     res.render('admin/addprodutos')
 })
 
-router.post('/produtos/novo', (req,res) => {
+router.post('/produtos/novo', multer.single('Img'), (req,res) => {
     const novoProduto = {
         nome: req.body.nome,
         slug: req.body.slug,
         descricao: req.body.descricao,
         preco: req.body.preco,
+        Img: req.body.Img
     }
    new Produto(novoProduto).save().then(() => {
         req.flash("success_msg", "Produto salvo com sucesso" )
