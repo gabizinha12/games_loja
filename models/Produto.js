@@ -18,6 +18,10 @@ const Produto = new Schema({
       type: String,
       required: true
     },
+    img: 
+    { 
+        type: String
+    }, 
     preco: {
         type: Number,
         required: true
