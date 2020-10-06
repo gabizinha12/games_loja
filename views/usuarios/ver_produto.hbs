@@ -1,0 +1,15 @@
+{{>header}}
+{{#each produtos}}
+    <h1>Produtos</h1>
+<div class="container">
+    <img src="/img/product/{{img}}" class="img-tiny">
+    <h1>{{nome}}</h1>
+    <h1>{{descricao}}</h1>
+    <h1> R$ {{preco}}</h1>
+    <button class="btn"><i class="las la-eye la-lg"></i>Ver produto</button>
+   <button class="btn"> <i class="las la-shopping-cart la-lg"></i>Comprar produto</button>
+</div>
+{{else}}
+
+
+{{/each}}

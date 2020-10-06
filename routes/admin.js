@@ -85,7 +85,7 @@ router.get('/categorias/edit/:id', eAdmin, (req,res) => {
     })
 })
 
-router.get('/produtos/edit/:id', eAdmin, (req,res) => {
+router.get('/produtos/edit/:id',  (req,res) => {
     Produto.findOne({_id: req.params.id}).lean().then((produto) => {
         res.render("admin/editprodutos", {produto: produto})
     }).catch((err) => {
@@ -116,12 +116,14 @@ router.post('/categorias/edit', eAdmin, (req,res) => {
     })
 })
 
-router.post('/produtos/edit', eAdmin, (req,res) => {
+router.post('/produtos/edit', multer.single('Img'), (req,res) => {
     Produto.findOne({_id: req.body.id}).then((produto) => {
         produto.nome = req.body.nome
         produto.slug = req.body.slug
         produto.preco = req.body.preco
         produto.descricao = req.body.descricao
+        produto.img = req.file.filename
+
 
         produto.save().then(() => {
             req.flash("success_msg", "Produto editado com sucesso")

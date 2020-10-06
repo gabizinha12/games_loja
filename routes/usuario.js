@@ -3,6 +3,7 @@ const router = express.Router()
 const mongoose = require('mongoose')
 require('../models/Usuario')
 const Usuario = mongoose.model("usuarios")
+const Produto = mongoose.model("produtos")
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 
@@ -79,6 +80,15 @@ router.post('/login', (req,res,next) => {
        failureRedirect: '/usuarios/login',
        failureFlash: true
    })(req,res,next)
+})
+
+router.get('/produtos', (req,res) => {
+    Produto.find().lean().then((produtos) => {
+    res.render('usuarios/ver_produto', {produtos: produtos})
+    }).catch((err) => {
+        req.flash("error_msg", "Houve um erro, tente novamente")
+        res.redirect('/')
+    })
 })
 
 router.get('/logout', (req,res) => {

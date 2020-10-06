@@ -7,6 +7,10 @@
       <input type="text" id="nome" name="nome" placeholder="Nome do produto" value="{{produto.nome}}">
       <label for="slug">Slug:</label>
       <input type="text" id="slug" name="slug" placeholder="Slug do produto" value="{{produto.slug}}">
+       <label for="descricao">Descrição:</label>
+      <textarea  id="descricao" name="descricao" placeholder="Descrição do produto" cols="30" rows="5"></textarea>
+      <label>Imagem do Produto</label>
+      <input name="Img" type="file" class="form-control-file" placeholder="Imagem do Produto">
       <label for="preco">Preço:</label>
       <input type="number" class="form-control" name="preco" step="0.01" maxlength="number" value="{{produto.preco}}">
       <button class="btn" type="submit">Salvar produto</button>
