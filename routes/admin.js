@@ -65,7 +65,7 @@ router.post('/produtos/novo', multer.single('Img'), (req,res) => {
         slug: req.body.slug,
         descricao: req.body.descricao,
         preco: req.body.preco,
-        Img: req.body.Img
+        img: req.file.filename
     }
    new Produto(novoProduto).save().then(() => {
         req.flash("success_msg", "Produto salvo com sucesso" )
