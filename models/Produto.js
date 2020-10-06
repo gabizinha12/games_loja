@@ -21,6 +21,9 @@ const Produto = new Schema({
     preco: {
         type: Number,
         required: true
+    },
+    img: {
+        type: String
     }
 
 })
