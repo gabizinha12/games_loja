@@ -46,7 +46,9 @@ app.use(express.static('public'));
 
 // mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/games_loja', {
+//mongodb+srv://alexandria:12345@cluster0.xrcys.mongodb.net/game?retryWrites=true&w=majority
+
+mongoose.connect('mongodb+srv://alexandria:12345@cluster0.xrcys.mongodb.net/game?retryWrites=true&w=majority', {
     useNewUrlParser: true , 
     useUnifiedTopology: true
 }).then(()=>{
@@ -58,6 +60,7 @@ mongoose.connect('mongodb://localhost/games_loja', {
 // rotas
 app.get('/', (req,res) => {
     Produto.find().lean().populate('produto').then((produtos) => {
+    console.log(produtos)
     res.render('index', {produtos: produtos})
     }).catch((err) => {
         req.flash("error_msg", "Ocorreu um erro")

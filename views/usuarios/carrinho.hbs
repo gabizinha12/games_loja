@@ -1,3 +1,6 @@
 {{>header}}
-<h1>Seu carrinho</h1>
-
+{{#each produtos}}
+<h1>{{nome}}</h1>
+{{else}}
+<h1>Nenhum produto </h1>
+{{/each}}

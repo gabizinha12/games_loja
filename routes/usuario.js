@@ -129,10 +129,16 @@ router.get("/addcarrinho", (req, res) => {
 
 
 router.get("/carrinho", async (req, res) => {
-  const carrinhos = carrinho[0].id;
-  let carrinho = await Carrinho.find()
-    .lean()
-      res.send(carrinho.toString())
+    let carrinho = await Carrinho.find()
+    let produtos = []
+    let tempProduct
+    for (const key in carrinho) {
+        tempProduct = await Produto.findById(carrinho[key].id).lean()
+        produtos.push(tempProduct)
+    }
+        
+    console.log(produtos)
+    res.render('usuarios/carrinho', {produtos: produtos})
 })
 
 router.get("/logout", (req, res) => {
