@@ -118,7 +118,7 @@ router.get("/addcarrinho", (req, res) => {
     .save()
     .then(() => {
       req.flash("success_msg", "Carrinho salvo com sucesso");
-      res.render("usuarios/carrinho");
+      res.redirect("carrinho");
     })
     .catch((err) => {
       req.flash("error_msg", "Houve um erro ao salvar");
@@ -132,13 +132,28 @@ router.get("/carrinho", async (req, res) => {
     let carrinho = await Carrinho.find()
     let produtos = []
     let tempProduct
+    let somarPreco = 0
     for (const key in carrinho) {
         tempProduct = await Produto.findById(carrinho[key].id).lean()
+        try {
+          somarPreco += tempProduct.preco;
+        } catch(error) {
+          console.log(">>>",tempProduct)
+          console.log(somarPreco)
+        }
         produtos.push(tempProduct)
     }
         
-    console.log(produtos)
-    res.render('usuarios/carrinho', {produtos: produtos})
+    res.render('usuarios/carrinho', {produtos: produtos, somarPreco})
+})
+
+router.get('/resetcarrinho', (req,res) => {
+  const id = req.body.id;
+  Carrinho.deleteMany({
+    id: id
+  }).then(() => {
+    res.redirect('/')
+  })
 })
 
 router.get("/logout", (req, res) => {

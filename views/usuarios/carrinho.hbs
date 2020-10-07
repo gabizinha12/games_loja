@@ -1,6 +1,9 @@
 {{>header}}
+<h1>Total: R$ {{somarPreco}}</h1>
+<a href="usuarios/resetcarrinho"><button class="btn">Prosseguir</button></a>
 {{#each produtos}}
 <h1>{{nome}}</h1>
+<img src="/img/product/{{img}}" class="img-tiny">
 {{else}}
 <h1>Nenhum produto </h1>
 {{/each}}
