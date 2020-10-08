@@ -156,6 +156,17 @@ router.get('/resetcarrinho', (req,res) => {
   })
 })
 
+router.post('/carrinho/edit/:id',  (req,res) => {
+  Carrinho.findOne({_id: req.params.id}).lean().then((produto) => {
+      res.render("usuarios/editar_carrinho", {produto: produto})
+  }).catch((err) => {
+      req.flash("error_msg", "Incapaz de editar produto")
+      console.log(err)
+      res.redirect("/")
+  })
+})
+
+
 router.get("/logout", (req, res) => {
   req.logout();
   req.flash("success_msg", "Você saiu da sua conta");

@@ -4,6 +4,7 @@
 {{#each produtos}}
 <h1>{{nome}}</h1>
 <img src="/img/product/{{img}}" class="img-tiny">
+<a href="/usuarios/carrinho/edit/{{_id}}"><button class="btn">Editar carrinho</button></a>
 {{else}}
 <h1>Nenhum produto </h1>
 {{/each}}
