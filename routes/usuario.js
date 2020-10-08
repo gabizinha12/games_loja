@@ -112,7 +112,7 @@ router.get("/produtos", (req, res) => {
 
 router.get("/addcarrinho", (req, res) => {
   const novoCarrinho = {
-    id: req.query.id,
+    _id: req.query.id,
   };
   new Carrinho(novoCarrinho)
     .save()
@@ -134,7 +134,7 @@ router.get("/carrinho", async (req, res) => {
     let tempProduct
     let somarPreco = 0
     for (const key in carrinho) {
-        tempProduct = await Produto.findById(carrinho[key].id).lean()
+        tempProduct = await Produto.findById(carrinho[key]._id).lean()
         try {
           somarPreco += tempProduct.preco;
         } catch(error) {
@@ -150,20 +150,19 @@ router.get("/carrinho", async (req, res) => {
 router.get('/resetcarrinho', (req,res) => {
   const id = req.body.id;
   Carrinho.deleteMany({
-    id: id
+    _id: id
   }).then(() => {
     res.redirect('/')
   })
 })
 
-router.post('/carrinho/edit/:id',  (req,res) => {
-  Carrinho.findOne({_id: req.params.id}).lean().then((produto) => {
-      res.render("usuarios/editar_carrinho", {produto: produto})
-  }).catch((err) => {
-      req.flash("error_msg", "Incapaz de editar produto")
-      console.log(err)
-      res.redirect("/")
-  })
+router.get('/carrinho/edit/:id', async (req,res) => {
+  try {
+    const produto = Carrinho.findOne({_id: req.params.id}).lean()
+    res.redirect("carrinho")
+  } catch(e) {
+   console.error(e)
+  }
 })
 
 

@@ -2,8 +2,12 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const Carrinho = new Schema({
-    id: {
+    _id: {
         type: String
+    },
+    quantidade: {
+        type: Number,
+        default: 1
     }
 })
 
