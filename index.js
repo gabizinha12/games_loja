@@ -47,6 +47,7 @@ app.use(express.static('public'));
 // mongoose
 mongoose.Promise = global.Promise;
 //mongodb+srv://alexandria:12345@cluster0.xrcys.mongodb.net/game?retryWrites=true&w=majority
+//mongodb://localhost/games_loja
 
 mongoose.connect('mongodb://localhost/games_loja', {
     useNewUrlParser: true , 
