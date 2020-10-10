@@ -2,8 +2,8 @@
 <h1 class="total" id="total">Total: R$ {{somarPreco}}</h1>
 <a href="checkout"><button class="btn">Finalizar compra</button></a>
 {{#each produtos}}
-<h1 class="produto">{{nome}}</h1>
-<h1 class="produto">{{preco}}</h1>
+<h1>{{nome}}</h1>
+<h1 class="precoProd">{{preco}}</h1>
 <input type="number" value="{{quantidade}}" class="qtd" id="qtd">
 <img src="/img/product/{{img}}" class="img-tiny">
 <a href="resetcarrinho"><button class="btn">Limpar carrinho</button></a>
@@ -13,17 +13,22 @@
 <script>
     document.querySelectorAll('input').forEach((input) => {
         input.onchange = (evt) => {
-            console.log(evt.target.value)
+            atualizaValor()
         }
     })
     function atualizaValor() {
-       // let total = document.querySelector("#total").innerText = value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
-        let qtd = document.querySelector("#qtd").value
-        let produto = document.querySelector(".produto").innerText
-        let acumulador = qtd * produto
-        console.log(">>",acumulador)
+       let quantidades = document.querySelectorAll('.qtd')
+       let precos = document.querySelectorAll('.precoProd')
+       let precoTotal = 0.
+       let tempQuant
+       let tempPreco
+       for(var i = 0;i < quantidades.length; i++) {
+           tempQuant = quantidades[i].value
+           tempPreco = precos[i].innerText
+           precoTotal += tempQuant*tempPreco
+       }
+       document.querySelector("#total").innerText = precoTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
     }
-            console.log(atualizaValor(produto))
 
 
 </script>
