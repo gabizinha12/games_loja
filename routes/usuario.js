@@ -135,6 +135,7 @@ router.get("/carrinho", async (req, res) => {
     for (const key in carrinho) {
         tempProduct = await Produto.findById(carrinho[key]._id).lean()
         tempProduct.quantidade = carrinho[key].quantidade
+        tempProduct.quantidade * tempProduct.preco
         try {
           somarPreco += tempProduct.preco;
         } catch(error) {
@@ -147,23 +148,16 @@ router.get("/carrinho", async (req, res) => {
     res.render('usuarios/carrinho', {produtos: produtos, somarPreco})
 })
 router.get('/resetcarrinho', (req,res) => {
-  const id = req.body.id;
   Carrinho.deleteMany({
-    _id: id
   }).then(() => {
-    res.redirect('/')
+    res.redirect('carrinho')
   })
 })
 
-router.get('/carrinho/edit/:id', async (req,res) => {
-  try {
-    const produto = Carrinho.findOne({_id: req.params.id}).lean()
-    res.redirect("/usuarios/carrinho")
-  } catch(e) {
-   console.error(e)
-  }
+router.get('/checkout', (req,res) => {
+  
+  res.render('usuarios/checkout')
 })
-
 
 router.get("/logout", (req, res) => {
   req.logout();

@@ -53,7 +53,20 @@ input[type="text"],
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  resize: vertical;
+}
+
+.qtd {
+  width: 9%;
+  padding: 15px;
+  margin-left: 20px;
+}
+
+.total {
+  background-color: #00BFFF;
+  display: block;
+  margin: 0 auto;
+  padding: 5px 5px;
+  align-content: center;
 }
 
 .info,
@@ -115,8 +128,18 @@ form {
   padding: 1em;
   margin-bottom: 20px;
   padding-bottom: 20px;
+  margin: 0 auto;
+
 }
 
+h3 {
+  font-weight: lighter;
+  margin-left: 10px;
+  margin-top: 20px;
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 .header {
   height: 30%;
