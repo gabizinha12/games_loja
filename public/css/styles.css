@@ -158,15 +158,22 @@ body {
   background-color: #dcdcdc;
 }
 
-h1 {
+.total {
   font-weight: lighter;
   margin-left: 10px;
   margin-top: 20px;
   font-family: "Quicksand", sans-serif;
   text-align: center;
   margin-bottom: 20px;
+  
 }
-
+.produto {
+  font-weight: lighter;
+  margin-left: 10px;
+  margin-top: 20px;
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+}
 * {
   box-sizing: content-box;
 }

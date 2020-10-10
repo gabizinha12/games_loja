@@ -1,11 +1,29 @@
 {{>header}}
-<h1 class="total">Total: R$ {{somarPreco}}</h1>
+<h1 class="total" id="total">Total: R$ {{somarPreco}}</h1>
 <a href="checkout"><button class="btn">Finalizar compra</button></a>
 {{#each produtos}}
-<h1>{{nome}}</h1>
-<input type="number" value="{{quantidade}}" class="qtd">
+<h1 class="produto">{{nome}}</h1>
+<h1 class="produto">{{preco}}</h1>
+<input type="number" value="{{quantidade}}" class="qtd" id="qtd">
 <img src="/img/product/{{img}}" class="img-tiny">
 <a href="resetcarrinho"><button class="btn">Limpar carrinho</button></a>
 {{else}}
 <h1>Nenhum produto </h1>
 {{/each}}
+<script>
+    document.querySelectorAll('input').forEach((input) => {
+        input.onchange = (evt) => {
+            console.log(evt.target.value)
+        }
+    })
+    function atualizaValor() {
+       // let total = document.querySelector("#total").innerText = value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+        let qtd = document.querySelector("#qtd").value
+        let produto = document.querySelector(".produto").innerText
+        let acumulador = qtd * produto
+        console.log(">>",acumulador)
+    }
+            console.log(atualizaValor(produto))
+
+
+</script>
