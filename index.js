@@ -49,9 +49,10 @@ mongoose.Promise = global.Promise;
 //mongodb+srv://alexandria:12345@cluster0.xrcys.mongodb.net/game?retryWrites=true&w=majority
 //mongodb://localhost/games_loja
 
-mongoose.connect('mongodb+srv://alexandria:12345@cluster0.xrcys.mongodb.net/game?retryWrites=true&w=majority', {
+mongoose.connect('mongodb://localhost/games_loja', {
     useNewUrlParser: true , 
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 }).then(()=>{
     console.log("MongoDB Conectado...");
 }).catch((err)=>{

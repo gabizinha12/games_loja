@@ -123,19 +123,14 @@ router.post('/produtos/edit', multer.single('Img'), (req,res) => {
         produto.preco = req.body.preco
         produto.descricao = req.body.descricao
         produto.img = req.file.filename
-
-
         produto.save().then(() => {
             req.flash("success_msg", "Produto editado com sucesso")
             res.redirect('/admin/produtos')
         }).catch((err) => {
             req.flash("error_msg", "Houve um erro interno ao salvar a edição")
             res.redirect('/admin/produtos')
+            console.error(err)
         })
-
-    }).catch((err) => {
-        req.flash("error_msg", "Houve um erro ao editar produto")
-        res.redirect("/admin/produtos")
     })
 
 })

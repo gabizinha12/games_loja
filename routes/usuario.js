@@ -128,36 +128,41 @@ router.get("/addcarrinho", (req, res) => {
 });
 
 router.get("/carrinho", async (req, res) => {
-    let carrinho = await Carrinho.find()
-    let produtos = []
-    let tempProduct
-    let somarPreco = 0
-    for (const key in carrinho) {
-        tempProduct = await Produto.findById(carrinho[key]._id).lean()
-        tempProduct.quantidade = carrinho[key].quantidade
-        tempProduct.quantidade * tempProduct.preco
-        try {
-          somarPreco += tempProduct.preco;
-        } catch(error) {
-          console.log(">>>",tempProduct)
-          console.log(somarPreco)
-        }
-        produtos.push(tempProduct)
+  let carrinho = await Carrinho.find();
+  let produtos = [];
+  let tempProduct;
+  let somarPreco = 0;
+  for (const key in carrinho) {
+    tempProduct = await Produto.findById(carrinho[key]._id).lean();
+    tempProduct.quantidade = carrinho[key].quantidade;
+    tempProduct.quantidade * tempProduct.preco;
+    try {
+      somarPreco += tempProduct.preco;
+    } catch (error) {
+      console.log(">>>", tempProduct);
+      console.log(somarPreco);
     }
-        
-    res.render('usuarios/carrinho', {produtos: produtos, somarPreco})
-})
-router.get('/resetcarrinho', (req,res) => {
-  Carrinho.deleteMany({
-  }).then(() => {
-    res.redirect('carrinho')
-  })
-})
+    produtos.push(tempProduct);
+  }
 
-router.get('/checkout', (req,res) => {
-  
-  res.render('usuarios/checkout')
-})
+  res.render("usuarios/carrinho", { produtos: produtos, somarPreco });
+});
+router.get("/resetcarrinho", (req, res) => {
+  Carrinho.deleteMany({}).then(() => {
+    res.redirect("carrinho");
+  });
+});
+
+router.post("/atualizarcarrinho", async (req, res) => {
+  console.log(">>>",req.body)
+  Carrinho.findOneAndUpdate({_id: req.body._id}, {quantidade: req.body.quantidade}).then((carrinho) => {
+    res.redirect("/usuarios/carrinho");
+  });
+});
+
+router.get("/checkout", (req, res) => {
+  res.render("usuarios/checkout");
+});
 
 router.get("/logout", (req, res) => {
   req.logout();

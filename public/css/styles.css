@@ -158,6 +158,14 @@ body {
   background-color: #dcdcdc;
 }
 
+h1 {
+  font-weight: lighter;
+  margin-left: 10px;
+  margin-top: 20px;
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+}
+
 .total {
   font-weight: lighter;
   margin-left: 10px;
