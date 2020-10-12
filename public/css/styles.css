@@ -122,7 +122,44 @@ label {
   font-family: "Quicksand", sans-serif;
 }
 
-form {
+.edita {
+  position: relative;
+  width: 300px;
+  padding: 1em;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+}
+
+.login {
+  position: relative;
+  width: 300px;
+  padding: 1em;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+}
+
+.registro{
+  position: relative;
+  width: 300px;
+  padding: 1em;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+}
+
+
+.adiciona {
+  position: relative;
+  width: 300px;
+  padding: 1em;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+}
+
+/* form {
   position: relative;
   width: 300px;
   padding: 1em;
@@ -130,7 +167,7 @@ form {
   padding-bottom: 20px;
   margin: 0 auto;
 
-}
+} */
 
 h3 {
   font-weight: lighter;

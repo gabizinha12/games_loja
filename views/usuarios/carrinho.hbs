@@ -1,6 +1,6 @@
 {{>header}}
 {{#each produtos}}
-<form action="atualizarcarrinho" id="{{_id}}" method="post">
+<form action="atualizarcarrinho" id="{{_id}}" method="post" class="atualiza"
     <input type="hidden" name="_id" value="{{_id}}">
 <h1 class="total" id="total">Total: R$ {{somarPreco}}</h1>
 <a href="/usuarios/checkout"><button class="btn">Finalizar compra</button></a>

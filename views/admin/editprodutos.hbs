@@ -1,7 +1,7 @@
 
 <div class="card">
    <h1>Editar produto</h1>
-   <form action="/admin/produtos/edit" method="post" enctype="multipart/form-data">
+   <form action="/admin/produtos/edit" method="post" enctype="multipart/form-data" class="edit">
       <input type="hidden" name="id" value="{{produto._id}}">
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" placeholder="Nome do produto" value="{{produto.nome}}">
