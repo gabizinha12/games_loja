@@ -1,14 +1,14 @@
 {{>header}}
-{{#each produtos}}
-<form action="atualizarcarrinho" id="{{_id}}" method="post" class="atualiza"
-    <input type="hidden" name="_id" value="{{_id}}">
 <h1 class="total" id="total">Total: R$ {{somarPreco}}</h1>
-<a href="/usuarios/checkout"><button class="btn">Finalizar compra</button></a>
+<a href="checkout"><button class="btn">Finalizar compra</button></a>
+<a href="resetcarrinho"><button class="btn">Limpar carrinho</button></a>
+{{#each produtos}}
+<form action="atualizarcarrinho" id="{{_id}}" method="post" class="atualiza">
+<input type="hidden" name="_id" value="{{_id}}">
 <h1>{{nome}}</h1>
 <h1 class="precoProd">{{preco}}</h1>
 <input type="number" value="{{quantidade}}" class="qtd" id="qtd" name="quantidade">
 <img src="/img/product/{{img}}" class="img-tiny">
-<a href="resetcarrinho"><button class="btn">Limpar carrinho</button></a>
 </form>
 {{else}}
 <h1>Nenhum produto </h1>
@@ -34,6 +34,4 @@
        }
        document.querySelector("#total").innerText = precoTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
     }
-
-
 </script>

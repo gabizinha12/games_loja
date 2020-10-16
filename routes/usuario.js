@@ -160,8 +160,24 @@ router.post("/atualizarcarrinho", async (req, res) => {
   });
 });
 
-router.get("/checkout", (req, res) => {
-  res.render("usuarios/checkout");
+router.get("/checkout",  async (req, res) => {
+  let carrinho = await Carrinho.find();
+  let produtos = [];
+  let tempProduct;
+  let somarPreco = 0;
+  for (const key in carrinho) {
+    tempProduct = await Produto.findById(carrinho[key]._id).lean();
+    tempProduct.quantidade = carrinho[key].quantidade;
+    tempProduct.quantidade * tempProduct.preco;
+    try {
+      somarPreco += tempProduct.preco;
+    } catch (error) {
+      console.log(">>>", tempProduct);
+      console.log(somarPreco);
+    }
+    produtos.push(tempProduct);
+  }
+  res.render("usuarios/checkout",  { produtos: produtos, somarPreco });
 });
 
 router.get("/logout", (req, res) => {
